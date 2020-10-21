@@ -21,6 +21,12 @@ public class InfinispanService {
   public void activate() {
 
     GlobalConfigurationBuilder builder = GlobalConfigurationBuilder.defaultClusteredBuilder();
+    builder.transport()
+        .defaultTransport()
+        .clusterName("clusterName")
+        .distributedSyncTimeout(50000);
+//        .addProperty("configurationFile", pathToJGroupsConfig);
+
     manager = new DefaultCacheManager(builder.build());
 
     ConfigurationBuilder configBuilder = new ConfigurationBuilder();
