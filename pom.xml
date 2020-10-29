@@ -1,77 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-   <modelVersion>4.0.0</modelVersion>
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-   <groupId>com.metaproc.poc</groupId>
-   <artifactId>infinispan-test-8</artifactId>
-   <version>1.0-SNAPSHOT</version>
+  <groupId>com.metaproc.poc</groupId>
+  <artifactId>infinispan-test-8</artifactId>
+  <version>1.0-SNAPSHOT</version>
 
-   <properties>
-      <infinispan.version>11.0.3.Final</infinispan.version>
-<!--      <infinispan.version>11.0.0.Dev05</infinispan.version>-->
-   </properties>
+  <properties>
+    <infinispan.version>11.0.3.Final</infinispan.version>
+    <!--      <infinispan.version>11.0.0.Dev05</infinispan.version>-->
+  </properties>
 
-   <dependencies>
+  <dependencies>
 
-<!--      <dependency>-->
-<!--         <groupId>org.infinispan</groupId>-->
-<!--         <artifactId>infinispan-query</artifactId>-->
-<!--         <version>${infinispan.version}</version>-->
-<!--      </dependency>-->
-      <dependency>
-         <groupId>org.infinispan</groupId>
-         <artifactId>infinispan-core</artifactId>
-         <version>${infinispan.version}</version>
-      </dependency>
+    <!--      <dependency>-->
+    <!--         <groupId>org.infinispan</groupId>-->
+    <!--         <artifactId>infinispan-query</artifactId>-->
+    <!--         <version>${infinispan.version}</version>-->
+    <!--      </dependency>-->
 
-      <dependency>
-         <groupId>junit</groupId>
-         <artifactId>junit</artifactId>
-         <version>4.13</version>
-         <scope>test</scope>
-      </dependency>
+    <dependency>
+      <groupId>org.infinispan</groupId>
+      <artifactId>infinispan-core</artifactId>
+      <version>${infinispan.version}</version>
+    </dependency>
 
-      <dependency>
-         <groupId>org.assertj</groupId>
-         <artifactId>assertj-core</artifactId>
-         <version>3.17.2</version>
-         <scope>test</scope>
-      </dependency>
+    <dependency>
+      <groupId>org.infinispan</groupId>
+      <artifactId>infinispan-cachestore-jdbc</artifactId>
+      <version>${infinispan.version}</version>
+    </dependency>
 
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.4.200</version>
+      <scope>compile</scope>
+    </dependency>
 
-   </dependencies>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.6</version>
+    </dependency>
 
-   <build>
-      <plugins>
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.1</version>
-            <configuration>
-               <source>8</source>
-               <target>8</target>
-            </configuration>
-         </plugin>
-<!--         <plugin>-->
-<!--            <groupId>org.codehaus.mojo</groupId>-->
-<!--            <artifactId>build-helper-maven-plugin</artifactId>-->
-<!--            <executions>-->
-<!--               <execution>-->
-<!--                  <phase>initialize</phase>-->
-<!--                  <goals>-->
-<!--                     <goal>add-source</goal>-->
-<!--                  </goals>-->
-<!--                  <configuration>-->
-<!--                     <sources>-->
-<!--                        <source>${project.build.directory}/generated-sources</source>-->
-<!--                     </sources>-->
-<!--                  </configuration>-->
-<!--               </execution>-->
-<!--            </executions>-->
-<!--         </plugin>-->
-      </plugins>
-   </build>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.17.2</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
+      </plugin>
+      <!--         <plugin>-->
+      <!--            <groupId>org.codehaus.mojo</groupId>-->
+      <!--            <artifactId>build-helper-maven-plugin</artifactId>-->
+      <!--            <executions>-->
+      <!--               <execution>-->
+      <!--                  <phase>initialize</phase>-->
+      <!--                  <goals>-->
+      <!--                     <goal>add-source</goal>-->
+      <!--                  </goals>-->
+      <!--                  <configuration>-->
+      <!--                     <sources>-->
+      <!--                        <source>${project.build.directory}/generated-sources</source>-->
+      <!--                     </sources>-->
+      <!--                  </configuration>-->
+      <!--               </execution>-->
+      <!--            </executions>-->
+      <!--         </plugin>-->
+    </plugins>
+  </build>
 
 </project>

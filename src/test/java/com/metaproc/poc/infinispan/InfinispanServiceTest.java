@@ -2,22 +2,30 @@ package com.metaproc.poc.infinispan;
 
 import com.metaproc.poc.model.AuthorHibernate;
 import com.metaproc.poc.model.BookHibernate;
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.NotSupportedException;
+import javax.transaction.RollbackException;
+import javax.transaction.SystemException;
 import org.infinispan.Cache;
 //import org.infinispan.query.Search;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class InfinispanServiceTest {
 
+  @Ignore
   @Test
-  public void activate() throws InterruptedException {
+  public void testBookCache() throws InterruptedException, IOException {
 
-    InfinispanService infinispanService = new InfinispanService();
+    InfinispanService infinispanService = new InfinispanService(1);
 
-    infinispanService.activate();
-    Cache<Integer, BookHibernate> cache = infinispanService.getCache();
+    infinispanService.activateManager();
+    Cache<Integer, BookHibernate> cache = infinispanService.getBookCache();
 
     putTestData(cache);
 //    queryTestData(cache);
@@ -94,7 +102,6 @@ public class InfinispanServiceTest {
     cache.put(book1.getId(), book1);
     cache.put(book2.getId(), book2);
     cache.put(book3.getId(), book3);
-
 
   }
 }
