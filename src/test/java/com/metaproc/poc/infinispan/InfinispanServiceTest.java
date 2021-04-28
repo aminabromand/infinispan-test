@@ -35,7 +35,7 @@ public class InfinispanServiceTest {
     infinispanService.deactivate();
 
   }
-
+ 
 //  public void queryTestData(Cache<Integer, BookHibernate> cache) {
 //    System.out.println("###");
 //    Search.getQueryFactory(cache).create("from com.metaproc.poc.model.BookHibernate b where b.id = 1").list().forEach(System.out::println);
